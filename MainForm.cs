@@ -30,11 +30,11 @@ namespace player
                 foreach (string drive in Directory.GetLogicalDrives())
                 {
                     ShellFileInfo finfo = new ShellFileInfo(drive);
-                    TreeNode item = nodes.Add(drive, finfo.FileName());
-                    string key = finfo.IconIndex().ToString();
+                    TreeNode item = nodes.Add(drive, finfo.FileName);
+                    string key = finfo.IconIndex.ToString();
 
                     if (!this.imageIcons.Images.ContainsKey(key))
-                        this.imageIcons.Images.Add(key, finfo.FileIcon());
+                        this.imageIcons.Images.Add(key, finfo.IconImage);
 
                     item.Tag = drive;
                     item.ImageKey = key;
@@ -59,13 +59,13 @@ namespace player
                 {
                     TreeNode item = nodes.Add(dir.FullName + '\\', dir.Name);
                     ShellFileInfo finfo = new ShellFileInfo(dir.FullName);
-                    string key = finfo.IconIndex().ToString();
+                    string key = finfo.IconIndex.ToString();
 
                     if (!this.imageIcons.Images.ContainsKey(key))
-                        this.imageIcons.Images.Add(key, finfo.FileIcon());
+                        this.imageIcons.Images.Add(key, finfo.IconImage);
 
                     item.Tag = dir.FullName;
-                    item.Text = finfo.FileName();
+                    item.Text = finfo.FileName;
                     item.ImageKey = key;
                     item.SelectedImageKey = key;
                     item.Nodes.Add("");
@@ -86,12 +86,12 @@ namespace player
                 foreach (FileInfo file in root.GetFiles())
                 {
                     ShellFileInfo finfo = new ShellFileInfo(file.FullName);
-                    string[] strs = { file.Name, Convert.ToString(file.Length / 1024) + "KB", finfo.FileType() };
+                    string[] strs = { file.Name, Convert.ToString(file.Length / 1024) + "KB", finfo.FileType };
                     ListViewItem item = new ListViewItem(strs);
-                    string key = finfo.IconIndex().ToString();
+                    string key = finfo.IconIndex.ToString();
 
                     if (!this.imageIcons.Images.ContainsKey(key))
-                        this.imageIcons.Images.Add(key, finfo.FileIcon());
+                        this.imageIcons.Images.Add(key, finfo.IconImage);
 
                     item.ImageKey = key;
                     item.Tag = file.FullName;
