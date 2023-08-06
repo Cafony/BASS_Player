@@ -133,7 +133,6 @@ namespace player
             // 
             // toolOffset
             // 
-            this.toolOffset.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolOffset.MaxLength = 16;
             this.toolOffset.Name = "toolOffset";
             this.toolOffset.Size = new System.Drawing.Size(30, 23);
@@ -146,7 +145,7 @@ namespace player
             this.toolRionix.IsLink = true;
             this.toolRionix.Name = "toolRionix";
             this.toolRionix.Size = new System.Drawing.Size(107, 18);
-            this.toolRionix.Text = "© 2007-2022 rionix";
+            this.toolRionix.Text = "© 2007-2023 rionix";
             this.toolRionix.Click += new System.EventHandler(this.toolRionix_Click);
             // 
             // Main
